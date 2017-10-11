@@ -35,6 +35,7 @@
   });
   return Salary, Region, Degree;
  }
+ console.log("hi");
 
 
 
