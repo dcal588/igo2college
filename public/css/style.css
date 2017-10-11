@@ -1,0 +1,25 @@
+html {
+}
+.bgblue {
+    background-color: #3498DB;
+}
+.textwhite {
+  color:#ffffff;
+}
+.bannerwrap {
+  text-align: center;
+  padding:3%;
+  font-family: 'Julius Sans One', sans-serif;
+}
+.bannercontent { 
+  margin: 0 auto; 
+  width: 960px; 
+}
+#mapid { 
+	height: 60%;
+	width:100%;
+}
+.modal {
+	left:50%;
+	right:50%;
+}
