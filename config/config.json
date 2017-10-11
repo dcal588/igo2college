@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Insecure",
-    "database": "database_development",
+    "database": "igo2college",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
