@@ -1,9 +1,17 @@
 var db = require("../models");
 
 // module.exports = function(app) {
-//   app.get("/api/posts", function(req, res) {
-//     var query = {}// do i need this?
-//     if (req)
-//   })
 //
-// }
+//   var queryScoreCard = "https://api.data.gov/ed/collegescorecard/v1/schools?fields=school.name&api_key=XdOHSc8fKhMKidPu2HWqCZmMy9OxtCJamGC580Bi";
+//
+//   app.get("/api/name", function(req, res) {
+//   db.Name.findAll({}).then(function(dbName) {
+//     res.json(dbName);
+//     });
+//   });
+// };
+
+//Did we compelete an activity in class using express and an API?
+//Do I use school, name, school.name, or school_name?
+//What is the table name?
+//do we need another api file for our sql database?
