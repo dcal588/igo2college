@@ -15,9 +15,10 @@
   },
   "production": {
     "username": "root",
-    "password": Insecure,
+    "password": "Insecure",
     "database": "IGO2COLLEGE",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "use_env_variable":"JawsDB_URL"
   }
 }
