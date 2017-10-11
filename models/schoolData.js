@@ -31,7 +31,7 @@
     midCareer10thPercentile: DataTypes.STRING,
     midCareer25thPercentile: DataTypes.STRING,
     midCareer75thPercentile: DataTypes.STRING,
-    midCareer90thPercentile: DataTypes.STRING,
+    midCareer90thPercentile: DataTypes.STRING
   });
   return Salary, Region, Degree;
  }
