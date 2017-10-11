@@ -2,14 +2,14 @@ USE IGO2COLLEGE;
 
 CREATE TABLE degree (
 id int auto_increment not null,
-undergraduateMajor VARCHAR(36),
-startingMedianSalary VARCHAR(10),
-midCareerMedianSalary VARCHAR(11),
-percentchangefromStartToMidCareer DECIMAL(5,1),
-midCareer10thPercentile VARCHAR(10),
-midCareer25thPercentile VARCHAR(10),
-midCareer75thPercentile VARCHAR(11),
-midCareer90thPercentile VARCHAR(11),
+undergraduateMajor VARCHAR(36) not null,
+startingMedianSalary VARCHAR(10) not null,
+midCareerMedianSalary VARCHAR(11) not null,
+percentchangefromStartToMidCareer DECIMAL(5,1) not null,
+midCareer10thPercentile VARCHAR(10) not null,
+midCareer25thPercentile VARCHAR(10) not null,
+midCareer75thPercentile VARCHAR(11) not null,
+midCareer90thPercentile VARCHAR(11) not null,
 primary key (id)
 );
 

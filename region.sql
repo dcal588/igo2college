@@ -3,14 +3,14 @@ USE IGO2COLLEGE;
 
 CREATE TABLE REGION (
 id int auto_increment not null,
-schoolName VARCHAR(77),
-region VARCHAR(30),
-startingMedianSalary VARCHAR(64),
-midCareerMedianSalary VARCHAR(64),
-midCareer10thPercentile  VARCHAR(64),
-midCareer25thPercentile  VARCHAR(64),
-midCareer75thPercentile  VARCHAR(64),
-midCareer90thPercentile  VARCHAR(64),
+schoolName VARCHAR(77) not null,
+region VARCHAR(30) not null,
+startingMedianSalary VARCHAR(64) not null,
+midCareerMedianSalary VARCHAR(64) not null,
+midCareer10thPercentile  VARCHAR(64) not null,
+midCareer25thPercentile  VARCHAR(64) not null,
+midCareer75thPercentile  VARCHAR(64) not null,
+midCareer90thPercentile  VARCHAR(64) not null,
 primary key (id)
 );
 

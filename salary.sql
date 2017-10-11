@@ -7,14 +7,14 @@ USE IGO2COLLEGE;
 
 CREATE TABLE Salary(
 id int auto_increment not null,
-undergraduateMajor VARCHAR(36),
-startingMedianSalary VARCHAR(10),
-midCareerMedianSalary VARCHAR(11),
-percentChangeStartToMidCareer DECIMAL (5,1),
-midCareer10thPercentile VARCHAR(10),
-midCareer25thPercentile  VARCHAR(10),
-midCareer75thPercentile  VARCHAR(11),
-midCareer90thPercentile  VARCHAR(11),
+undergraduateMajor VARCHAR(36)not null,
+startingMedianSalary VARCHAR(10) not null,
+midCareerMedianSalary VARCHAR(11) not null,
+percentChangeStartToMidCareer DECIMAL (5,1) not null,
+midCareer10thPercentile VARCHAR(10) not null,
+midCareer25thPercentile  VARCHAR(10) not null,
+midCareer75thPercentile  VARCHAR(11) not null,
+midCareer90thPercentile  VARCHAR(11) not null,
 primary key (id)
 );
 INSERT INTO Salary (undergraduateMajor, startingMedianSalary, midCareerMedianSalary, percentChangeStartToMidCareer, midCareer10thPercentile, midCareer25thPercentile, midCareer75thPercentile, midCareer90thPercentile)
