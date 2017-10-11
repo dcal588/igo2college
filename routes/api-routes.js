@@ -9,13 +9,6 @@ module.exports = function(app) {
     res.json(dbName);
     });
   });
-
-  app.post("/api/name", function(req, res) {
-    console.log(req.body);
-    db.Name.create(req.body).then(function(dbName) {
-      res.json(dbName);
-    });
-  });
 };
 
 //Did we compelete an activity in class using express and an API?
