@@ -14,7 +14,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("public"));
 
-require("./routes/api-routes.js")(app);
+require("./routes/api-routes.js");
 
 
 db.sequelize.sync({ force: true }).then(function() {
@@ -53,4 +53,3 @@ db.sequelize.sync({ force: true }).then(function() {
 // // =============================================================================
 // app.listen(port);
 // console.log('Magic happens on port ' + port);
-
