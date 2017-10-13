@@ -1,6 +1,6 @@
  //salary
  module.exports = function(sequelize, DataTypes) {
- var College = sequelize.define("Salary", {
+ var College = sequelize.define("College", {
    schoolName: DataTypes.STRING,
    undergraduateMajor: DataTypes.STRING,
    startingMedianSalary: DataTypes.STRING,
