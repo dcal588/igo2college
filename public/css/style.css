@@ -11,13 +11,22 @@ html {
   padding:3%;
   font-family: 'Julius Sans One', sans-serif;
 }
-.bannercontent { 
-  margin: 0 auto; 
-  width: 960px; 
+.bannercontent {
+  margin: 0 auto;
+  width: 960px;
 }
-#mapid { 
+#mapid {
 	height: 60%;
 	width:100%;
 }
 .modal {
 }
+
+h1{
+		font-size: 42px;
+		color: #fff;
+		line-height: 230px;
+		text-transform: uppercase;
+		font-weight: 100;
+		@include transition(all .3s ease);
+	}

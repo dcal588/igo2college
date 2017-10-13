@@ -1,6 +1,6 @@
  //salary
  module.exports = function(sequelize, DataTypes) {
- var Salary = sequelize.define("Salary", {
+ var College = sequelize.define("College", {
    undergraduateMajor: DataTypes.STRING,
    startingMedianSalary: DataTypes.STRING,
    midCareerMedianSalary: DataTypes.STRING,
@@ -33,7 +33,7 @@
     midCareer75thPercentile: DataTypes.STRING,
     midCareer90thPercentile: DataTypes.STRING
   });
-  return Salary, Region, Degree;
+  return College, Region, Degree;
  }
  console.log("hi");
 
