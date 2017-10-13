@@ -36,11 +36,3 @@
   return College, Region, Degree;
  }
  console.log("hi");
-
-
-
-
-
-
-
-// //region
