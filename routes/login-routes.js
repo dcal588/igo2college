@@ -11,7 +11,7 @@ module.exports = function(app) {
         id: req.body.id
       }
     }).then(function(dbUsers) {
-      res.json(body);
+      res.json(dbUsers);
     });
   });
 
