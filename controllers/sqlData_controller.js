@@ -1,6 +1,6 @@
 //declare
 
-var express = require("experess");
+var express = require("express");
 
 var router = express.Router();
 
@@ -13,10 +13,22 @@ router.get('/', function(req,res) {
 
 //get college table
 router.get("/schoolData", function(req, res) {
-  db.College.findAll({}).then(function(data) {
-    var hbsObject = { schoolData: data };
+  db.IGO2COLLEGE.findAll({}).then(function(data) {
+    var hbsObject = { College: data };
     res.render("index", hbsObject);
   })
 });
-console.log("konichiwa");
+
+router.get("/schoolData", function(req, res) {
+  db.IGO2COLLEGE.findOne({
+    where: {
+      title: "schoolName",
+
+    }
+  }).then(function(data) {
+    var hbsObject = { College: data };
+    res.render("index.html", hbsObject);
+  })
+});
+console.log("suck it");
 //post to user api for now
