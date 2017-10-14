@@ -3,7 +3,7 @@ var request = require('request');
 var db = require("../models");
 
  var apiKey = 'XdOHSc8fKhMKidPu2HWqCZmMy9OxtCJamGC580Bi';
- var fields = '_fields=school.name,2013.aid.median_debt.completers.overall,2013.repayment.1_yr_repayment.completers,2013.earnings.10_yrs_after_entry.working_not_enrolled.mean_earnings';
+ var fields = '_fields=school.name,2015.aid.median_debt.completers.overall,2015.cost.tuition.in_state';
  var requestUrl = 'https://api.data.gov/ed/collegescorecard/v1/schools.json?&api_key=' + apiKey + '&' + fields;
 
 module.exports = function(app) {
