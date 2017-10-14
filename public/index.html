@@ -1,131 +1,87 @@
+
 <html>
-
 <head>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-   crossorigin=""/>
-	<title>I Go 2 College</title>
-</head>
-
-<body>
-    <link rel="stylesheet" href="../dist/remodal.css">
-  <link rel="stylesheet" href="../dist/remodal-default-theme.css">
-  <style>
-    .remodal-bg.with-red-theme.remodal-is-opening,
-    .remodal-bg.with-red-theme.remodal-is-opened {
-      filter: none;
-    }
-
-    .remodal-overlay.with-red-theme {
-      background-color: #f44336;
-    }
-
-    .remodal.with-red-theme {
-      background: #fff;
-    }
-  </style>
+<meta charset="utf-8">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i" rel="stylesheet"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+  crossorigin=""/>
+<title>IGO2COLLEGE</title>
+<link rel="stylesheet" href="src/jquery.remodal.css" />
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+<!-- GENERAL HTML STRUCTURE -->
+<div id="mapid"></div>
+
+<!-- MODAL AREA -->
 <div class="remodal-bg">
-  <a href="#modal">Modal №1</a><br>
-
-<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
-  <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
-  <div>
-    <h2 id="modal1Title">Remodal</h2>
-    <p id="modal1Desc">
-    <div class="row">
+  <div class="introheader" id="introheader">
+    <h1 class="textwhite">LOOKING FOR<p> A COLLEGE<p> OR UNIVERSITY?<p> LET US HELP!</h1>
+      <div class="click-area"> <a class="modal-click" href="#modal">Start</a> <br>
+        <br>
+  </div>
+    <br>
+  </div>
+  <div class="remodal" data-remodal-id="modal">
+    <p>What School are you looking for?</p>
+<div class="row">
     <div class="col-xs-12 text-center enter_section">
       <form action="/school" method="GET">
         <input type="text" class="form-control" name="school.name" value="" id="enter_text">
-        <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+        <button type="submit" class="btn btn-primary" id="text-enter-button button" id="button" onclick="showhide()">Submit</button>
       </form>
       <p>Enter a college name</p>
     </div>
   </div>
-    </p>
-  </div>
-  <br>
-  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+    <br>
+    <a class="remodal-cancel" href="#">Cancel</a> <a class="remodal-confirm" href="#">OK</a> </div>
 </div>
-
-<div data-remodal-id="modal2" role="dialog" aria-labelledby="modal2Title" aria-describedby="modal2Desc">
-  <div>
-    <h2 id="modal2Title">Another one window</h2>
-    <p id="modal2Desc">
-      Hello!
-    </p>
-  </div>
-  <br>
-  <button data-remodal-action="confirm" class="remodal-confirm">Hello!</button>
-</div>
-	  <!-- nav bar -->
-    <div class="navigation container">
-      <ul class="nav navbar-nav navbar-left bgblue">
-        <li><a class="navbar-brand textwhite" href="#"><h1>IG2C</a></li>
-      </ul>
-    </div>
-    <div class="bannerwrap bgblue">
-      <div class="bannercontent">
-        <h1 class="textwhite">We know how hard choosing a college or university can be. Let us help!</h1>
-      </div>
-    </div>
-          <div id="mapid"></div>
-      <div class="main container">
-
-		</div>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.js"></script>
-<script>window.Zepto || document.write('<script src="../libs/zepto/zepto.min.js"><\/script>')</script>
-<script src="../dist/remodal.js"></script>
-
+<script>
+function showhide()
+ {
+       var div = document.getElementById("introheader");
+if (div.style.display !== "none") {
+    div.style.display = "none";
+}
+else {
+    div.style.display = "block";
+}
+ }
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+<!-- Instead of JQuery, you can use zepto now! -->
+<!--<script src="js/zepto.min.js"></script>-->
+<script src="src/jquery.remodal.js"></script>
 <!-- Events -->
 <script>
-  $(document).on('opening', '.remodal', function () {
-    console.log('opening');
-  });
+    $(document).on('open', '.remodal', function () {
+        console.log('open');
+    });
 
-  $(document).on('opened', '.remodal', function () {
-    console.log('opened');
-  });
+    $(document).on('opened', '.remodal', function () {
+        console.log('opened');
+    });
 
-  $(document).on('closing', '.remodal', function (e) {
-    console.log('closing' + (e.reason ? ', reason: ' + e.reason : ''));
-  });
+    $(document).on('close', '.remodal', function () {
+        console.log('close');
+    });
 
-  $(document).on('closed', '.remodal', function (e) {
-    console.log('closed' + (e.reason ? ', reason: ' + e.reason : ''));
-  });
+    $(document).on('closed', '.remodal', function () {
+        console.log('closed');
+    });
 
-  $(document).on('confirmation', '.remodal', function () {
-    console.log('confirmation');
-  });
+    $(document).on('confirm', '.remodal', function () {
+        console.log('confirm');
+    });
 
-  $(document).on('cancellation', '.remodal', function () {
-    console.log('cancellation');
-  });
-
-  //  Usage:
-  //  $(function() {
-  //
-  //    // In this case the initialization function returns the already created instance
-  //    var inst = $('[data-remodal-id=modal]').remodal();
-  //
-  //    inst.open();
-  //    inst.close();
-  //    inst.getState();
-  //    inst.destroy();
-  //  });
-
-  //  The second way to initialize:
-  $('[data-remodal-id=modal2]').remodal({
-    modifier: 'with-red-theme'
-  });
+    $(document).on('cancel', '.remodal', function () {
+        console.log('cancel');
+    });
 </script>
-  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
    crossorigin=""></script>
   <script>
@@ -135,11 +91,7 @@
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'your.mapbox.access.token'
-		}).addTo(mymap);
+    }).addTo(mymap);
   </script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="assets\javascript\logic.js"></script>
-	<script type="text/javascript"></script>
 </body>
-
 </html>

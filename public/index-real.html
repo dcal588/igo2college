@@ -1,0 +1,92 @@
+<html>
+
+<head>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+   crossorigin=""/>
+  <link rel="stylesheet" href="src/jquery.remodal.css">
+	<title>I Go 2 College</title>
+</head>
+
+<body>
+	  <!-- nav bar -->
+    <div class="navigation container">
+      <ul class="nav navbar-nav navbar-left bgblue">
+        <li><a class="navbar-brand textwhite" href="#"><h1>IG2C</a></li>
+      </ul>
+    </div>
+<div class="demo" data-remodal-id="modal">
+<a href="http://www.jqueryscript.net/tags.php?/Modal/">Modal</a> Content Goes Here
+<a class="remodal-cancel" href="#">Cancel</a>
+<a class="remodal-confirm" href="#">OK</a>
+</div>
+  <a class="modal-click" href="#modal">Click</a>
+  <div class="bannerwrap bgblue">
+    <div class="bannercontent">
+       <h1 class="textwhite">We know how hard choosing a college or university can be. Let us help!</h1>
+    </div>
+  </div>
+          <div id="mapid"></div>
+      <div class="main container">
+
+		</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="src/jquery.remodal.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+<!-- Instead of JQuery, you can use zepto now! -->
+<!--<script src="js/zepto.min.js"></script>-->
+<script src="src/jquery.remodal.js"></script>
+<!-- Events -->
+<script>
+    $(document).on('open', '.remodal', function () {
+        console.log('open');
+    });
+
+    $(document).on('opened', '.remodal', function () {
+        console.log('opened');
+    });
+
+    $(document).on('close', '.remodal', function () {
+        console.log('close');
+    });
+
+    $(document).on('closed', '.remodal', function () {
+        console.log('closed');
+    });
+
+    $(document).on('confirm', '.remodal', function () {
+        console.log('confirm');
+    });
+
+    $(document).on('cancel', '.remodal', function () {
+        console.log('cancel');
+    });
+
+    // You can open or close it like this:
+    // var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
+    // inst.open();
+    // inst.close();
+
+    // Or init in this way:
+    var inst = $('[data-remodal-id=modal2]').remodal();
+    // inst.open();
+</script>
+<!--   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script>
+  <script>
+    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZGNhbDU4OCIsImEiOiJjajhsNGUzM2cwa2ZrMndtem93eTZldjVvIn0.OBN4FEFTbjKpMVamnU73cw', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'your.mapbox.access.token'
+		}).addTo(mymap);
+  </script>
+</body>
+
+</html>
