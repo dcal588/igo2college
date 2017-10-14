@@ -1,6 +1,9 @@
 <html>
 
 <head>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="assets\javascript\logic.js"></script>
+	<script type="text/javascript"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
@@ -38,15 +41,43 @@
     <h2 id="modal1Title">Remodal</h2>
     <p id="modal1Desc">
     <div class="row">
-    <div class="col-xs-12 text-center enter_section">
-      <form action="/school" method="GET">
+    <div class="col-xs-6 text-center enter_section">
+      <form>
         <input type="text" class="form-control" name="school.name" value="" id="enter_text">
         <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
       </form>
       <p>Enter a college name</p>
     </div>
   </div>
-    </p>
+	<div>
+	<!-- <form action = "/api/users/:id" method = "POST"> -->
+		<form method="POST" action="/api/users/:id?_method=GET">
+	  <div class="form-group col-xs-4">
+	    <label for="userName">User Name:</label>
+	    <input type="text" class="form-control" id="userName">
+	    <label for="pwd">Password:</label>
+	    <input type="text" class="form-control" id="pwd">
+  		<button type="submit" class="btn btn-default">Submit</button>
+		</div>
+	<!-- <div>
+			<a href="https://www.w3schools.com/html/" target="_blank">Register</a>
+		</div> -->
+		<!-- <div class="container">
+			<div class="main">
+			<form class="form" method="post" action="#">
+			<h2> Login </h2>
+			<label>User Name :</label>
+			<input type="text" name="demail" id="userName">
+			<label>Password :</label>
+			<input type="password" name="password" id="password">
+			<input type="button" name="login" id="login" value="Login">
+			</form>
+			</div>
+			</div> -->
+		</form>
+	</div>
+
+
   </div>
   <br>
   <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
@@ -137,9 +168,7 @@
     accessToken: 'your.mapbox.access.token'
 		}).addTo(mymap);
   </script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="assets\javascript\logic.js"></script>
-	<script type="text/javascript"></script>
+
 </body>
 
 </html>
