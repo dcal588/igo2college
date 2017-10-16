@@ -21,23 +21,56 @@
     <h1 class="textwhite">LOOKING FOR<p> A COLLEGE<p> OR UNIVERSITY?<p> LET US HELP!</h1>
       <div class="click-area"> <a class="modal-click" href="#modal">Start</a> <br>
         <br>
-  </div>
+      </div>
     <br>
   </div>
-  <div class="remodal" data-remodal-id="modal">
+<div class="remodal" data-remodal-id="modal">
     <p>What School are you looking for?</p>
-<div class="row">
-    <div class="col-xs-12 text-center enter_section">
-      <form action="/school" method="GET" id = "myform">
-        <input type="text" class="form-control" name="school.name" value="" id="enter_text">
-        <!-- <button type="submit" class="btn btn-primary" id="text-enter-button button" id="submit">Submit</button> -->
-      </form>
-      <p>Enter a college name</p>
+    <p>Enter a college name</p>
+    <div class="row">
+        <div class="col-xs-12 text-center enter_section">
+          <form action="/school" method="GET" id = "myform">
+            <input type="text" class="form-control" name="school.name" value="" id="enter_text">
+            <!-- <button type="submit" class="btn btn-primary" id="text-enter-button button" id="submit">Submit</button> -->
+          </form>
+
+        </div>
     </div>
-  </div>
     <br>
-    <a class="remodal-cancel" href="#">Cancel</a> <a class="remodal-confirm" id = "submit" href="#">OK</a> </div>
+    <a class="remodal-cancel" href="#">Cancel</a> <a class="remodal-confirm" id = "submit" href="#">OK</a>
+    <br>
+    <a href = '.myModal'><mark>Login</mark></a>or<a class = "login"><mark>Register</mark></a>to save your searches.
 </div>
+</div>
+</div>
+
+
+
+<!-- Modal -->
+<!-- <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-body">
+        <form action="/users/:id" method="GET">
+        <div class = "remodal" data-remodal-id="modal" id = "loginModal">
+          <div class="form-group">
+            <label for="userName">User Name:</label>
+            <input type="text" class="form-control" id="userName">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd">
+          </div>
+        </form>
+          <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+          <a class="remodal-confirm" id = "submit" href="#modal">Submit</a>
+          <a class="remodal-cancel" href="#">Cancel</a>
+      </div>
+    </div>
+  </div> -->
+
+
+
 <script>
 function showhide()
  {
