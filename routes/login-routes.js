@@ -20,7 +20,8 @@ module.exports = function(app) {
       if (err) {
         throw err;
       }
-      res.render("index", {Users: data});
+      // res.render("index", {Users: data});
+      console.log('index', {Users: data});
     });
   });
 
