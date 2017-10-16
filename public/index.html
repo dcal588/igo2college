@@ -28,7 +28,7 @@
     <p>What School are you looking for?</p>
 <div class="row">
     <div class="col-xs-12 text-center enter_section">
-      <form action="/school" method="GET">
+      <form action="/school" method="GET" id = "myform">
         <input type="text" class="form-control" name="school.name" value="" id="enter_text">
         <!-- <button type="submit" class="btn btn-primary" id="text-enter-button button" id="submit">Submit</button> -->
       </form>
@@ -71,9 +71,11 @@ else {
 
     $(document).on('closed', '.remodal', function () {
         console.log('closed');
+        $('#myform')[0].reset();
     });
 
     $(document).on('confirm', '.remodal', function () {
+
       $.ajax({
        url: '/school?school.name=' + $("#enter_text").val(),
        method: "GET",
@@ -85,8 +87,7 @@ else {
         var address = response.results[0]['school.name'];
         var cost = response.results[0]['2015.cost.tuition.in_state'];
         var debt = response.results[0]['2015.aid.median_debt.completers.overall'];
-        // var newSearch = <button type="submit" class="btn btn-primary" id="text-enter-button button" id="newSearch">New Search</button>
-        var link = '<a href="#modal"><mark>New Search</mar></a>';
+        var newSearch = '<a href="#modal"><mark>New Search</mar></a>';
 
         geocoder.geocode( { 'address': address}, function(results, status) {
           var latitude;
@@ -98,13 +99,15 @@ else {
             var marker = L.marker([latitude, longitude]).addTo(mymap)
                 // .bindPopup(JSON.stringify(response.results)) //prints the school data to the popup
                 .bindPopup('School: ' + address + '<br> ' + 'Average cost per year: $' + Number(cost).toLocaleString() +
-                ' <br>' + 'Student debt at graduation: $' + Number(debt).toLocaleString() + "<br>" + link)
+                ' <br>' + 'Student debt at graduation: $' + Number(debt).toLocaleString() + "<br>" + newSearch)
                 .openPopup();
+
             // mymap.fitBounds(L.latLngBounds([marker.getLatLng()]));
           }
         });
       });
     });
+
     $(document).on('cancel', '.remodal', function () {
         console.log('cancel');
     });
