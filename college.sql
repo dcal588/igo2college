@@ -5,7 +5,7 @@ CREATE DATABASE IGO2COLLEGE;
 
 USE IGO2COLLEGE;
 
-CREATE TABLE College(
+CREATE TABLE Colleges(
 id int auto_increment not null,
 schoolName VARCHAR(100) not null,
 undergraduateMajor VARCHAR(36) not null,
@@ -19,7 +19,7 @@ primary key (id)
 );
 
 
-INSERT INTO College (schoolName, undergraduateMajor, startingMedianSalary, midCareerMedianSalary, midCareer10thPercentileSalary, midCareer25thPercentileSalary, midCareer75thPercentileSalary, midCareer90thPercentileSalary ) 
+INSERT INTO Colleges (schoolName, undergraduateMajor, startingMedianSalary, midCareerMedianSalary, midCareer10thPercentileSalary, midCareer25thPercentileSalary, midCareer75thPercentileSalary, midCareer90thPercentileSalary ) 
 values
 ('Massachusetts Institute of Technology (MIT)','Engineering','$72,200.00','$126,000.00','$76,800.00','$99,200.00','$168,000.00','$220,000.00'),
 ('California Institute of Technology (CIT)','Engineering','$75,500.00','$123,000.00','N/A','$104,000.00','$161,000.00','N/A'),
