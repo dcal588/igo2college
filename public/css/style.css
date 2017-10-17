@@ -28,6 +28,7 @@ h1{
 		font-family: 'Cabin', sans-serif;
 		@include transition(all .3s ease);
 	}
+
 .remodal-bg {
 	position:fixed;
 	left:0px;
