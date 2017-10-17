@@ -14,7 +14,9 @@ request(requestUrl + "&school.name=" + req.query["school.name"], function (error
 
     var json = JSON.parse(body);
     console.log(json);
-    res.send(json);
+    var data = json
+    console.log(data);
+    res.send(data);
   }
  else {
 
