@@ -1,34 +1,21 @@
 //declare
 
-var express = require("express");
-
-var router = express.Router();
-
 var db = require("../models");
 
+//Get route for getting IGO2COLLEGE database
+
+module.exports = function(app) {
+
 //get route to index
-router.get('/', function(req,res) {
-  res.redirect("/schoolData");
-});
+app.get('/api/College', function(req,res) {
 
-//get college table
-router.get("/schoolData", function(req, res) {
   db.IGO2COLLEGE.findAll({}).then(function(data) {
-    var hbsObject = { College: data };
-    res.render("index", hbsObject);
-  })
+    res.json(data);
+  });
 });
 
-router.get("/schoolData", function(req, res) {
-  db.IGO2COLLEGE.findOne({
-    where: {
-      title: "schoolName",
+console.log(req.body.data);
 
-    }
-  }).then(function(data) {
-    var hbsObject = { College: data };
-    res.render("index.html", hbsObject);
-  })
-});
-console.log("suck it");
-//post to user api for now
+
+
+};
