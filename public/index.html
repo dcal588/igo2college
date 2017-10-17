@@ -16,28 +16,61 @@
 <div id="mapid"></div>
 
 <!-- MODAL AREA -->
-<div class="remodal-bg">
+<div class="remodal-bg" id="shade">
   <div class="introheader" id="introheader">
     <h1 class="textwhite">LOOKING FOR<p> A COLLEGE<p> OR UNIVERSITY?<p> LET US HELP!</h1>
       <div class="click-area"> <a class="modal-click" href="#modal">Start</a> <br>
         <br>
-  </div>
+      </div>
     <br>
   </div>
-  <div class="remodal" data-remodal-id="modal">
+<div class="remodal" data-remodal-id="modal">
     <p>What School are you looking for?</p>
-<div class="row">
-    <div class="col-xs-12 text-center enter_section">
-      <form action="/school" method="GET">
-        <input type="text" class="form-control" name="school.name" value="" id="enter_text">
-        <button type="submit" class="btn btn-primary" id="text-enter-button button" id="button" onclick="showhide()">Submit</button>
-      </form>
-      <p>Enter a college name</p>
+    <p>Enter a college name</p>
+    <div class="row">
+        <div class="col-xs-12 text-center enter_section">
+          <form action="/school" method="GET" id = "myform">
+            <input type="text" class="form-control" name="school.name" value="" id="enter_text">
+            <!-- <button type="submit" class="btn btn-primary" id="text-enter-button button" id="submit">Submit</button> -->
+          </form>
+
+        </div>
     </div>
-  </div>
     <br>
-    <a class="remodal-cancel" href="#">Cancel</a> <a class="remodal-confirm" href="#">OK</a> </div>
+    <a class="remodal-cancel" href="#">Cancel</a> <a class="remodal-confirm" id = "submit" href="#">OK</a>
+    <br>
+    <a href = '.myModal'><mark>Login</mark></a>or<a class = "login"><mark>Register</mark></a>to save your searches.
 </div>
+</div>
+</div>
+
+
+
+<!-- Modal -->
+<!-- <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-body">
+        <form action="/users/:id" method="GET">
+        <div class = "remodal" data-remodal-id="modal" id = "loginModal">
+          <div class="form-group">
+            <label for="userName">User Name:</label>
+            <input type="text" class="form-control" id="userName">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd">
+          </div>
+        </form>
+          <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+          <a class="remodal-confirm" id = "submit" href="#modal">Submit</a>
+          <a class="remodal-cancel" href="#">Cancel</a>
+      </div>
+    </div>
+  </div> -->
+
+
+
 <script>
 function showhide()
  {
@@ -71,10 +104,41 @@ else {
 
     $(document).on('closed', '.remodal', function () {
         console.log('closed');
+        $('#myform')[0].reset();
     });
 
     $(document).on('confirm', '.remodal', function () {
-        console.log('confirm');
+
+      $.ajax({
+       url: '/school?school.name=' + $("#enter_text").val(),
+       method: "GET",
+       dataType: 'json'
+     }).done(function(response) {
+      //  alert(response.results[0]['school.name']);
+
+        var geocoder = new google.maps.Geocoder();
+        var address = response.results[0]['school.name'];
+        var cost = response.results[0]['2015.cost.tuition.in_state'];
+        var debt = response.results[0]['2015.aid.median_debt.completers.overall'];
+        var newSearch = '<a href="#modal"><mark>New Search</mar></a>';
+
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          var latitude;
+          var longitude;
+          if (status == google.maps.GeocoderStatus.OK) {
+            latitude = results[0].geometry.location.lat();
+            longitude = results[0].geometry.location.lng();
+            $('#shade').remove();
+            var marker = L.marker([latitude, longitude]).addTo(mymap)
+                // .bindPopup(JSON.stringify(response.results)) //prints the school data to the popup
+                .bindPopup('School: ' + address + '<br> ' + 'Average cost per year: $' + Number(cost).toLocaleString() +
+                ' <br>' + 'Student debt at graduation: $' + Number(debt).toLocaleString() + "<br>" + newSearch)
+                .openPopup();
+
+            // mymap.fitBounds(L.latLngBounds([marker.getLatLng()]));
+          }
+        });
+      });
     });
 
     $(document).on('cancel', '.remodal', function () {
@@ -84,8 +148,9 @@ else {
 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
    crossorigin=""></script>
+   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyD-7Xt84DXCRekGKMzu6nG6Y_wSNuwf6mE"></script>
   <script>
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var mymap = L.map('mapid').setView([39.0558, -95.6890], 5);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZGNhbDU4OCIsImEiOiJjajhsNGUzM2cwa2ZrMndtem93eTZldjVvIn0.OBN4FEFTbjKpMVamnU73cw', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,

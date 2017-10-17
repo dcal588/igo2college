@@ -5,13 +5,23 @@ var jquery = require("jquery");
 
 module.exports = function(app) {
 
-  app.get("/api/users/:id", function(req, res) {
-    db.Users.findOne({
-      where: {
-        id: req.body.id
+  // app.get("/api/users/:id", function(req, res) {
+  //   db.Users.findOne({
+  //     where: {
+  //       id: req.body.id
+  //     }
+  //   }).then(function(dbUsers) {
+  //     res.json(dbUsers);
+  //   });
+  // });
+
+  app.get("/users/:id", function(req, res) {
+    connection.query("SELECT * FROM Users WHERE id = ?", [req.params.id], function(err, result) {
+      if (err) {
+        throw err;
       }
-    }).then(function(dbUsers) {
-      res.json(dbUsers);
+      // res.render("index", {Users: data});
+      console.log('index', {Users: data});
     });
   });
 
