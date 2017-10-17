@@ -33,7 +33,6 @@
             <input type="text" class="form-control" name="school.name" value="" id="enter_text">
             <!-- <button type="submit" class="btn btn-primary" id="text-enter-button button" id="submit">Submit</button> -->
           </form>
-
         </div>
     </div>
     <br>
@@ -88,7 +87,7 @@
               <input type="password" class="form-control" id="pwd">
             </div>
           </form>
-            <a class="remodal-confirm" id = "submit" href="#regmodal">Submit</a>
+            <a class="remodal-confirm" id = "submit" href="#">Submit</a>
             <a class="remodal-cancel" href="#">Cancel</a>
         </div>
       </div>
@@ -173,6 +172,14 @@ else {
           }
         });
       });
+      //ajax call for post
+      $.ajax({
+       url: '/school?school.name=' + $("#enter_text").val(),
+       method: "GET",
+       dataType: 'json'
+     }).done(function(response) {
+      //  alert(response.results[0]['school.name']);
+
     });
 
     $(document).on('cancel', '.remodal', function () {
