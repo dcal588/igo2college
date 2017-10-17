@@ -1,6 +1,4 @@
-
 //declare
-
 var db = require("../models");
 
 //Get route for getting IGO2COLLEGE database
@@ -8,15 +6,11 @@ var db = require("../models");
 module.exports = function(app) {
 
 //get route to index
-app.get('/api/College', function(req,res) {
+app.get('/api/college', function(req,res) {
 
-  db.IGO2COLLEGE.findAll({}).then(function(data) {
-    res.json(data);
+  db.Colleges.findAll({}).then(function(dbColleges) {
+    res.json(dbColleges);
   });
 });
-
-console.log(req.body.data);
-
-
 
 };
