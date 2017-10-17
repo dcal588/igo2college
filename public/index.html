@@ -39,16 +39,16 @@
     <br>
     <a class="remodal-cancel" href="#">Cancel</a> <a class="remodal-confirm" id = "submit" href="#">OK</a>
     <br>
-    <a href = '/users/:id'><mark>Login</mark></a>or<a class = "login"><mark>Register</mark></a>to save your searches.
+    <a href = '#mymodal'><mark>Login</mark></a>or<a class = "login"><mark>Register</mark></a>to save your searches.
 </div>
 </div>
 </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<!-- myModal -->
+<div class="remodal">
       <div class="modal-body">
-        <div class = "remodal" data-remodal-id="modal" id = "loginModal">
-          <form action="/users/:id" method="GET">
+        <div class = "remodal" data-remodal-id="mymodal" id = "loginModal">
+          <form action="myModal" method="GET">
           <div class="form-group">
             <label for="userName">User Name:</label>
             <input type="text" class="form-control" name = 'userName' value = '' id="userName">
@@ -61,7 +61,7 @@
           <div class="checkbox">
             <label><input type="checkbox"> Remember me</label>
           </div>
-          <a class="remodal-confirm" id = "submit" href="#modal">Submit</a>
+          <a class="remodal-confirm" id = "submit" href="#mymodal">Submit</a>
           <a class="remodal-cancel" href="#">Cancel</a>
       </div>
     </div>
