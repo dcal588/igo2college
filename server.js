@@ -22,7 +22,6 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("public"));
 app.use(methodOverride('_method'))
 
-
 require("./routes/api-routes.js")(app);
 require("./routes/login-routes.js")(app);
 

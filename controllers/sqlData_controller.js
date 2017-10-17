@@ -8,8 +8,8 @@ module.exports = function(app) {
 //get route to index
 app.get('/api/college', function(req,res) {
 
-  db.Colleges.findAll({}).then(function(dbColleges) {
-    res.json(dbColleges);
+  db.College.findAll({}).then(function(dbColleges) {
+    res.json(dbCollege);
   });
 });
 
