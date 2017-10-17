@@ -1,6 +1,6 @@
 
  module.exports = function(sequelize, DataTypes) {
- var College = sequelize.define("College", {
+ var Colleges = sequelize.define("College", {
    schoolName: DataTypes.STRING,
    undergraduateMajor: DataTypes.STRING,
    startingMedianSalary: DataTypes.STRING,
@@ -11,7 +11,7 @@
    midCareer90thPercentileSalary: DataTypes.STRING
     });
 
-  var Region = sequelize.define("Region", {
+  var Regions = sequelize.define("Region", {
     region: DataTypes.STRING,
     schoolName: DataTypes.STRING,
     undergraduateMajor: DataTypes.STRING,
@@ -23,7 +23,7 @@
     midCareer90thPercentile: DataTypes.STRING
   });
 
-  var Degree = sequelize.define("Degree", {
+  var Degrees = sequelize.define("Degree", {
     undergraduateMajor: DataTypes.STRING,
     startingMedianSalary: DataTypes.STRING,
     midCareerMedianSalary: DataTypes.STRING,
@@ -33,6 +33,5 @@
     midCareer75thPercentile: DataTypes.STRING,
     midCareer90thPercentile: DataTypes.STRING
   });
-  return College, Region, Degree;
+  return Colleges, Regions, Degrees;
  }
- console.log("hi");
