@@ -39,7 +39,7 @@
     <br>
     <a class="remodal-cancel" href="#">Cancel</a> <a class="remodal-confirm" id = "submit" href="#">OK</a>
     <br>
-    <a href = '#mymodal'><mark>Login</mark></a>or<a class = "login"><mark>Register</mark></a>to save your searches.
+    <a href = '#mymodal'><mark>Login</mark></a>or<a href = '#regmodal'><mark>Register</mark></a>to save your searches.
 </div>
 </div>
 </div>
@@ -66,6 +66,35 @@
       </div>
     </div>
   </div>
+
+  <div class="remodal">
+        <div class="modal-body">
+          <div class = "remodal" data-remodal-id="regmodal" id = "registerModal">
+            <form action="myModal" method="POST">
+              <div class="form-group">
+                <label for="firstName">First name:</label>
+                <input type="text" class="form-control" name = 'firstName' value = '' id="firstName">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last name:</label>
+                <input type="text" class="form-control" name = 'lastName' value = '' id="lastName">
+              </div>
+            <div class="form-group">
+              <label for="userName">Please choose a username:</label>
+              <input type="text" class="form-control" name = 'userName' value = '' id="userName">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Please choose a password:</label>
+              <input type="password" class="form-control" id="pwd">
+            </div>
+          </form>
+            <a class="remodal-confirm" id = "submit" href="#regmodal">Submit</a>
+            <a class="remodal-cancel" href="#">Cancel</a>
+        </div>
+      </div>
+    </div>
+
+
 
 
 
